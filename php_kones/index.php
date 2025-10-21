@@ -9,24 +9,30 @@
 <body>
     <!-- Header y Navegación -->
     <header class="header">
-        <!-- Navegación superior -->
-        <nav class="top-nav">
-            <div class="container">
-                <div class="top-nav-links">
-                    <a href="#inicio" class="top-nav-link active">Inicio</a>
-                    <a href="#servicios" class="top-nav-link">Servicios</a>
-                    <a href="#instalaciones" class="top-nav-link">Instalaciones</a>
-                    <a href="#actividades" class="top-nav-link">Actividades</a>
-                    <a href="#contacto" class="top-nav-link">Contacto</a>
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo colorido -->
+                <div class="logo-colorful">
+                    <span class="logo-letter logo-k">K</span>
+                    <span class="logo-letter logo-o">o</span>
+                    <span class="logo-letter logo-n">n</span>
+                    <span class="logo-letter logo-e">e</span>
+                    <span class="logo-letter logo-s">'s</span>
                 </div>
-            </div>
-        </nav>
-        
-        <!-- Logo principal -->
-        <div class="main-header">
-            <div class="container">
-                <div class="logo-container">
-                    <img src="assets/images/logo.jpg" alt="Kone's" class="main-logo">
+                
+                <!-- Navegación -->
+                <nav class="main-nav">
+                    <a href="#servicios" class="nav-link">Servicios</a>
+                    <a href="#instalaciones" class="nav-link">Instalaciones</a>
+                    <a href="#actividades" class="nav-link">Actividades</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </nav>
+                
+                <!-- Menú hamburguesa -->
+                <div class="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
         </div>
@@ -35,18 +41,52 @@
     <!-- Sección de Bienvenida -->
     <section id="inicio" class="hero">
         <div class="container">
+            <!-- Elementos decorativos -->
+            <div class="hero-decorations">
+                <div class="decoration-circle circle-1"></div>
+                <div class="decoration-circle circle-2"></div>
+                <div class="decoration-circle circle-3"></div>
+                <div class="decoration-rainbow"></div>
+                <div class="decoration-star"></div>
+            </div>
+            
             <div class="hero-content">
-                <h1 class="hero-title">¡Bienvenida(o) a Kone's!</h1>
+                <h1 class="hero-title">¡Bienvenido a Kone's!</h1>
                 <div class="hero-text">
                     <p>
-                        Somos un centro psicoeducativo infantil y de estimulación temprana para bebés desde los 45 días de nacidos hasta niños de 12 años, con o sin necesidades educativas especiales.
+                        La misión de Kone's es educar con compromiso y dedicación, ofreciendo un servicio personalizado, integral y novedoso que impulse el desarrollo de cada niño.
                     </p>
-                    <p>
-                        Nuestro objetivo es atender a bebés y niños de manera oportuna, dinámica y personalizada, tanto en programas grupales como individuales, para desarrollar habilidades y capacidades, respetando sus estilos y ritmos de aprendizaje.
-                    </p>
-                    <p>
-                        Kone's trabaja basado en tres pilares (familia, escuela y otros profesionales) con un enfoque interdisciplinario para fomentar el crecimiento personal, académico y social de nuestros pacientes.
-                    </p>
+                </div>
+                
+                <!-- Imágenes de niños -->
+                <div class="children-images">
+                    <div class="child-image child-writing">
+                        <img src="assets/images/nina_escribiendo.jpg" alt="Niña escribiendo" class="child-photo">
+                        <div class="child-overlay">
+                            <span class="child-icon">✏️</span>
+                            <p>Niña escribiendo</p>
+                        </div>
+                    </div>
+                    <div class="child-image child-playing">
+                        <img src="assets/images/nina_jugando.jpg" alt="Niña jugando" class="child-photo">
+                        <div class="child-overlay">
+                            <span class="child-icon">🧱</span>
+                            <p>Niña jugando</p>
+                        </div>
+                    </div>
+                    <div class="child-image child-reading">
+                        <img src="assets/images/nino_leyendo.jpg" alt="Niño leyendo" class="child-photo">
+                        <div class="child-overlay">
+                            <span class="child-icon">📚</span>
+                            <p>Niño leyendo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Botones de llamada a la acción -->
+                <div class="hero-buttons">
+                    <a href="#servicios" class="cta-button cta-services">Conoce nuestros servicios</a>
+                    <a href="#contacto" class="cta-button cta-appointment">Agendar cita</a>
                 </div>
             </div>
         </div>
@@ -56,7 +96,7 @@
     <section id="servicios" class="services">
         <div class="container">
             <h2 class="section-title">SERVICIOS</h2>
-
+            
             <!-- Estimulación Temprana -->
             <div class="service-main">
                 <div class="service-logo">
@@ -69,39 +109,47 @@
                     </p>
                 </div>
             </div>
-
-            <!-- Programas Especializados -->
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="assets/images/dhap.jpg" alt="DHAP" class="service-icon-img">
-                    <h4 class="service-title-small">Desarrollo de habilidades para el aprendizaje</h4>
-                    <p class="service-description-small">
-                        Programa grupal para intervenir en procesos cognitivos como atención, memoria, funciones ejecutivas y trabajar metacognición y creatividad.
-                    </p>
+            
+            <!-- Servicios principales con iconos circulares -->
+            <div class="services-main-grid">
+                <div class="service-main-card" onclick="toggleDescription('dhap')">
+                    <div class="service-icon-circle dhap">
+                        <span class="service-icon-text">DHAP</span>
+                    </div>
+                    <h4 class="service-main-title">Desarrollo de habilidades para el aprendizaje</h4>
+                    <div class="service-description-text" id="dhap-desc">
+                        <p>Programa grupal para intervenir en procesos cognitivos como atención, memoria, funciones ejecutivas y trabajar metacognición y creatividad.</p>
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <img src="assets/images/nee.jpg" alt="NEE" class="service-icon-img">
-                    <h4 class="service-title-small">Necesidades educativas especiales</h4>
-                    <p class="service-description-small">
-                        Programa personalizado para niños con trastornos como Síndrome de Down, TDAH, trastornos del aprendizaje (TEA), enfocado en desarrollo cognitivo, motor, lenguaje, afectivo y social.
-                    </p>
+                <div class="service-main-card" onclick="toggleDescription('nee')">
+                    <div class="service-icon-circle nee">
+                        <span class="service-icon-text">NEE</span>
+                    </div>
+                    <h4 class="service-main-title">Necesidades educativas especiales</h4>
+                    <div class="service-description-text" id="nee-desc">
+                        <p>Programa personalizado para niños con trastornos como Síndrome de Down, TDAH, trastornos del aprendizaje (TEA), enfocado en desarrollo cognitivo, motor, lenguaje, afectivo y social.</p>
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <img src="assets/images/lee.jpg" alt="LEE" class="service-icon-img">
-                    <h4 class="service-title-small">Lecto-escritura</h4>
-                    <p class="service-description-small">
-                        Programa individual o grupal dirigido a la adquisición y perfeccionamiento de los procesos de comprensión lectora y escritura.
-                    </p>
+                <div class="service-main-card" onclick="toggleDescription('lee')">
+                    <div class="service-icon-circle lee">
+                        <span class="service-icon-text">LEE</span>
+                    </div>
+                    <h4 class="service-main-title">Lecto-escritura</h4>
+                    <div class="service-description-text" id="lee-desc">
+                        <p>Programa individual o grupal dirigido a la adquisición y perfeccionamiento de los procesos de comprensión lectora y escritura.</p>
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <img src="assets/images/dhas.jpg" alt="DHAS" class="service-icon-img">
-                    <h4 class="service-title-small">Desarrollo de habilidades sociales</h4>
-                    <p class="service-description-small">
-                        Programa grupal enfocado en desarrollar habilidades sociales en los niños, promoviendo autoseguridad, trabajo en equipo, relaciones interpersonales sanas y autoestima.
-                    </p>
+                <div class="service-main-card" onclick="toggleDescription('dhas')">
+                    <div class="service-icon-circle dhas">
+                        <span class="service-icon-text">DHAS</span>
+                    </div>
+                    <h4 class="service-main-title">Desarrollo de habilidades sociales</h4>
+                    <div class="service-description-text" id="dhas-desc">
+                        <p>Programa grupal enfocado en desarrollar habilidades sociales en los niños, promoviendo autoseguridad, trabajo en equipo, relaciones interpersonales sanas y autoestima.</p>
+                    </div>
                 </div>
             </div>
 

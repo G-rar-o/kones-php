@@ -27,93 +27,277 @@ html, body {
     background-color: white;
     position: relative;
     z-index: 100;
-}
-
-.top-nav {
-    background-color: transparent;
     padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.top-nav .container {
+.header-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
-.top-nav-links {
+/* Logo colorido */
+.logo-colorful {
+    display: flex;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+
+.logo-letter {
+    display: inline-block;
+    margin-right: 2px;
+    transition: transform 0.3s ease;
+}
+
+.logo-letter:hover {
+    transform: scale(1.1);
+}
+
+.logo-k { color: #ff6b9d; }
+.logo-o { color: #ffa726; }
+.logo-n { color: #ffeb3b; }
+.logo-e { color: #4caf50; }
+.logo-s { color: #9c27b0; }
+
+/* Navegación */
+.main-nav {
     display: flex;
     gap: 30px;
 }
 
-.top-nav-link {
+.nav-link {
     text-decoration: none;
-    color: #666;
-    font-weight: 500;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    padding: 8px 12px;
-    border-radius: 4px;
-}
-
-.top-nav-link.active {
-    background-color: #e9ecef;
     color: #333;
-}
-
-.top-nav-link:hover {
-    color: #ff6b9d;
-}
-
-.top-login-btn {
-    padding: 8px 16px;
-    background-color: #e9ecef;
-    color: #666;
-    text-decoration: none;
-    border-radius: 5px;
     font-weight: 500;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 20px;
+    position: relative;
 }
 
-.top-login-btn:hover {
-    background-color: #dee2e6;
+.nav-link:hover {
+    color: #ff6b9d;
+    background-color: #f8f9fa;
 }
 
-.main-header {
-    padding: 20px 0;
-    text-align: center;
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+    background-color: #2196f3;
+    border-radius: 2px;
 }
 
-.logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Menú hamburguesa */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
 }
 
-.main-logo {
-    max-width: 400px;
-    height: auto;
-    border-radius: 0;
-    box-shadow: none;
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
 }
 
 /* Hero Section */
 .hero {
-    padding: 40px 20px;
+    padding: 60px 20px;
     text-align: center;
-    background-color: #f5f5f5;
+    background: linear-gradient(135deg, #fef7e0 0%, #fff8f0 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Elementos decorativos del hero */
+.hero-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.decoration-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.circle-1 {
+    width: 80px;
+    height: 80px;
+    background-color: #ff6b9d;
+    top: 10%;
+    left: 10%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.circle-2 {
+    width: 60px;
+    height: 60px;
+    background-color: #4caf50;
+    top: 20%;
+    right: 15%;
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+.circle-3 {
+    width: 100px;
+    height: 100px;
+    background-color: #ffa726;
+    bottom: 20%;
+    left: 20%;
+    animation: float 7s ease-in-out infinite;
+}
+
+.decoration-rainbow {
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    width: 120px;
+    height: 60px;
+    background: linear-gradient(45deg, #ff6b9d, #ffa726, #ffeb3b, #4caf50, #2196f3, #9c27b0);
+    border-radius: 60px 60px 0 0;
+    opacity: 0.4;
+    animation: rainbow 4s ease-in-out infinite;
+}
+
+.decoration-star {
+    position: absolute;
+    bottom: 15%;
+    right: 20%;
+    width: 40px;
+    height: 40px;
+    background-color: #ffeb3b;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    opacity: 0.6;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes rainbow {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(5deg); }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
 }
 
 .hero-content {
+    position: relative;
+    z-index: 2;
     max-width: 900px;
     margin: 0 auto;
 }
 
 .hero-title {
-    font-size: 2rem;
-    color: #999;
+    font-size: 3rem;
+    color: #1a365d;
     margin-bottom: 30px;
-    font-weight: normal;
+    font-weight: bold;
+}
+
+.hero-text {
+    margin-bottom: 40px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #2d3748;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Imágenes de niños */
+.children-images {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.child-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.child-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Botones de llamada a la acción */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    min-width: 200px;
+    text-align: center;
+}
+
+.cta-services {
+    background-color: #f7fafc;
+    color: #1a365d;
+    border: 2px solid #e2e8f0;
+}
+
+.cta-services:hover {
+    background-color: #edf2f7;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.cta-appointment {
+    background-color: #ff6b9d;
+    color: white;
+}
+
+.cta-appointment:hover {
+    background-color: #e55a8a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 157, 0.3);
 }
 
 .hero-text {
@@ -129,16 +313,216 @@ html, body {
 
 /* Services Section */
 .services {
-    padding: 100px 20px;
-    background-color: #f5f5f5;
+    padding: 60px 20px;
+    background-color: white;
 }
 
 .section-title {
-    font-size: 2.8rem;
     text-align: center;
-    margin-bottom: 80px;
-    color: #999;
+    font-size: 2.5rem;
+    color: #ff6b9d;
+    margin-bottom: 50px;
     font-weight: bold;
+}
+
+/* Servicios principales con iconos circulares */
+.services-main-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.service-main-card {
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.service-main-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-icon-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: all 0.3s ease;
+}
+
+.service-icon-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.service-icon-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.service-icon-circle.dhap {
+    background-color: #87ceeb;
+}
+
+.service-icon-circle.nee {
+    background-color: #ffeb3b;
+}
+
+.service-icon-circle.lee {
+    background-color: #ffa726;
+}
+
+.service-icon-circle.dhas {
+    background-color: #ff6b9d;
+}
+
+.service-main-title {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Sección de estimulación temprana */
+.service-main {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    gap: 40px;
+    padding: 40px;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.service-logo {
+    flex-shrink: 0;
+}
+
+.service-logo-img {
+    width: 200px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.service-content {
+    flex: 1;
+}
+
+.service-title {
+    font-size: 2rem;
+    color: #ff6b9d;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.service-description {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Descripciones desplegables */
+.service-main-card {
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.service-main-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.service-description-text {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.service-description-text.active {
+    max-height: 200px;
+    padding: 15px;
+}
+
+.service-description-text p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .logo-colorful {
+        font-size: 2rem;
+    }
+    
+    .main-nav {
+        gap: 20px;
+    }
+    
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .children-images {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .child-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-button {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .services-main-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .service-icon-circle {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .service-icon-text {
+        font-size: 1.2rem;
+    }
 }
 
 .service-main {

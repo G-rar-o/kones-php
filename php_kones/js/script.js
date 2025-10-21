@@ -141,3 +141,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Función para mostrar/ocultar descripciones de servicios
+function toggleDescription(serviceId) {
+    const description = document.getElementById(serviceId + '-desc');
+    const isActive = description.classList.contains('active');
+    
+    // Cerrar todas las descripciones primero
+    const allDescriptions = document.querySelectorAll('.service-description-text');
+    allDescriptions.forEach(desc => {
+        desc.classList.remove('active');
+    });
+    
+    // Si la descripción no estaba activa, la abrimos
+    if (!isActive) {
+        description.classList.add('active');
+    }
+}
