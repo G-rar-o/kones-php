@@ -6,10 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
             const targetId = this.getAttribute('href');
+            
+            // Solo interceptar enlaces que empiecen con #
             if (targetId.startsWith('#')) {
+                e.preventDefault();
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     targetElement.scrollIntoView({
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
             }
+            // Si no empieza con #, dejar que el enlace funcione normalmente
         });
     });
 
@@ -144,17 +146,53 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Función para mostrar/ocultar descripciones de servicios
 function toggleDescription(serviceId) {
-    const description = document.getElementById(serviceId + '-desc');
-    const isActive = description.classList.contains('active');
-    
-    // Cerrar todas las descripciones primero
     const allDescriptions = document.querySelectorAll('.service-description-text');
-    allDescriptions.forEach(desc => {
-        desc.classList.remove('active');
-    });
+    const firstDescription = allDescriptions[0];
+    const isAnyActive = firstDescription.classList.contains('active');
     
-    // Si la descripción no estaba activa, la abrimos
-    if (!isActive) {
-        description.classList.add('active');
+    if (isAnyActive) {
+        // Si alguna está activa, cerrar todas
+        allDescriptions.forEach(desc => {
+            desc.classList.remove('active');
+        });
+    } else {
+        // Si ninguna está activa, abrir todas
+        allDescriptions.forEach(desc => {
+            desc.classList.add('active');
+        });
     }
 }
+
+
+// Función para manejar el scroll suave
+function smoothScrollTo(targetId) {
+    const target = document.getElementById(targetId);
+    if (target) {
+        const headerHeight = document.querySelector('.header').offsetHeight;
+        const targetPosition = target.offsetTop - headerHeight - 20;
+        
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Función para detectar prefers-reduced-motion
+function respectReducedMotion() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+        // Desactivar animaciones si el usuario prefiere movimiento reducido
+        document.documentElement.style.setProperty('--animation-duration', '0s');
+        document.documentElement.style.setProperty('--transition-duration', '0s');
+    }
+}
+
+// Inicializar funciones cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    respectReducedMotion();
+    
+    // Escuchar cambios en la preferencia de movimiento
+    window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', respectReducedMotion);
+});

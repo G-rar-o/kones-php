@@ -11,13 +11,9 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <!-- Logo colorido -->
+                <!-- Logo de imagen -->
                 <div class="logo-colorful">
-                    <span class="logo-letter logo-k">K</span>
-                    <span class="logo-letter logo-o">o</span>
-                    <span class="logo-letter logo-n">n</span>
-                    <span class="logo-letter logo-e">e</span>
-                    <span class="logo-letter logo-s">'s</span>
+                    <img src="assets/images/logo.jpg" alt="Kone's" class="logo-image">
                 </div>
                 
                 <!-- Navegación -->
@@ -46,47 +42,49 @@
                 <div class="decoration-circle circle-1"></div>
                 <div class="decoration-circle circle-2"></div>
                 <div class="decoration-circle circle-3"></div>
+                <div class="decoration-circle circle-4"></div>
+                <div class="decoration-circle circle-5"></div>
                 <div class="decoration-rainbow"></div>
                 <div class="decoration-star"></div>
+                <div class="decoration-star star-2"></div>
+                <div class="decoration-star star-3"></div>
             </div>
             
             <div class="hero-content">
-                <h1 class="hero-title">¡Bienvenido a Kone's!</h1>
-                <div class="hero-text">
-                    <p>
-                        La misión de Kone's es educar con compromiso y dedicación, ofreciendo un servicio personalizado, integral y novedoso que impulse el desarrollo de cada niño.
-                    </p>
+                <!-- Título principal con tipografía mejorada -->
+                <h1 class="hero-title">
+                    <span class="hero-title-part1">¡Bienvenido a</span>
+                    <span class="hero-title-part2">Kone's!</span>
+                </h1>
+                
+                <!-- Subtítulo emocional -->
+                <div class="hero-subtitle">
+                    <p class="hero-subtitle-main">Acompañamos el desarrollo de cada niño con amor, juego y aprendizaje.</p>
+                    <!-- <p class="hero-subtitle-secondary">La misión de Kone's es educar con compromiso y dedicación, ofreciendo un servicio personalizado, integral y novedoso que impulse el desarrollo de cada niño.</p> -->
                 </div>
                 
-                <!-- Imágenes de niños -->
+                <!-- Imágenes de niños con marcos mejorados -->
                 <div class="children-images">
                     <div class="child-image child-writing">
-                        <img src="assets/images/nina_escribiendo.jpg" alt="Niña escribiendo" class="child-photo">
-                        <div class="child-overlay">
-                            <span class="child-icon">✏️</span>
-                            <p>Niña escribiendo</p>
-                        </div>
+                        <img src="assets/images/nina_escribiendo.jpg" alt="Niña escribiendo y aprendiendo" class="child-photo">
                     </div>
                     <div class="child-image child-playing">
-                        <img src="assets/images/nina_jugando.jpg" alt="Niña jugando" class="child-photo">
-                        <div class="child-overlay">
-                            <span class="child-icon">🧱</span>
-                            <p>Niña jugando</p>
-                        </div>
+                        <img src="assets/images/nina_jugando.jpg" alt="Niña jugando y explorando" class="child-photo">
                     </div>
                     <div class="child-image child-reading">
-                        <img src="assets/images/nino_leyendo.jpg" alt="Niño leyendo" class="child-photo">
-                        <div class="child-overlay">
-                            <span class="child-icon">📚</span>
-                            <p>Niño leyendo</p>
-                        </div>
+                        <img src="assets/images/nino_leyendo.jpg" alt="Niño leyendo y descubriendo" class="child-photo">
                     </div>
                 </div>
                 
-                <!-- Botones de llamada a la acción -->
+                <!-- Botones CTA mejorados -->
                 <div class="hero-buttons">
-                    <a href="#servicios" class="cta-button cta-services">Conoce nuestros servicios</a>
-                    <a href="#contacto" class="cta-button cta-appointment">Agendar cita</a>
+                    <a href="#servicios" class="cta-button cta-services" aria-label="Conoce nuestros servicios educativos">
+                        <span>Conoce nuestros servicios</span>
+                        <span class="cta-icon">→</span>
+                    </a>
+                    <a href="#contacto" class="cta-button cta-appointment" aria-label="Agendar una cita para conocer Kone's">
+                        Agendar cita
+                    </a>
                 </div>
             </div>
         </div>
@@ -254,34 +252,43 @@
         <div class="container">
             <h2 class="section-title">CONTACTO</h2>
             
-            <div class="contact-methods">
-                <div class="contact-method">
-                    <div class="contact-icon whatsapp">📱</div>
-                    <div class="contact-info">
-                        <span class="contact-label">WhatsApp</span>
-                        <span class="contact-value">(+52) 33-18-72-92-37</span>
-                    </div>
+            <div class="contact-content">
+                <div class="contact-methods">
+                    <a href="https://wa.me/523318729237" target="_blank" class="contact-method contact-link">
+                        <div class="contact-icon whatsapp">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-label">WhatsApp</span>
+                            <span class="contact-value">(+52) 33-18-72-92-37</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://maps.app.goo.gl/nfpesFVyrTccKHxWA" target="_blank" class="contact-method contact-link">
+                        <div class="contact-icon location">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-label">Ubicación</span>
+                            <span class="contact-value">Vasco de Quiroga, La Loma, Guadalajara, Jalisco</span>
+                        </div>
+                    </a>
+                    
+                    <a href="mailto:konesmx@gmail.com" class="contact-method contact-link">
+                        <div class="contact-icon email">✉️</div>
+                        <div class="contact-info">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">konesmx@gmail.com</span>
+                        </div>
+                    </a>
                 </div>
-                
-                <div class="contact-method">
-                    <div class="contact-icon location">📍</div>
-                    <div class="contact-info">
-                        <span class="contact-label">Ubicación</span>
-                        <span class="contact-value">Guadalajara, Jalisco, México</span>
-                    </div>
-                </div>
-                
-                <div class="contact-method">
-                    <div class="contact-icon email">✉️</div>
-                    <div class="contact-info">
-                        <span class="contact-label">Email</span>
-                        <span class="contact-value">contacto@kones.com.mx</span>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Formulario de Contacto -->
-            <div class="contact-form-container">
+                <!-- Formulario de Contacto -->
+                <div class="contact-form-container">
                 <form action="contacto.php" method="POST" class="contact-form">
                     <div class="form-group">
                         <label for="nombre">Nombre *</label>
@@ -295,13 +302,14 @@
                     
                     <div class="form-group">
                         <label for="mensaje">Mensaje *</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                        <textarea id="mensaje" name="mensaje" rows="4" required style="resize: none;"></textarea>
                     </div>
                     
                     <div class="form-submit">
                         <button type="submit" class="submit-btn">Enviar</button>
                     </div>
                 </form>
+                </div>
             </div>
         </div>
     </section>
@@ -311,19 +319,20 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <span class="footer-link">Aviso de Privacidad</span>
+                    <a href="aviso-privacidad.php" class="footer-link">Aviso de Privacidad</a>
                 </div>
                 
                 <div class="footer-center">
-                    <span class="footer-copyright">© Kone's™ 2023</span>
+                    <span class="footer-copyright">© Kone's™ 2024</span>
                 </div>
                 
                 <div class="footer-right">
                     <div class="social-links">
-                        <a href="#" class="social-link facebook">📘</a>
-                        <a href="#" class="social-link instagram">📷</a>
-                        <a href="#" class="social-link twitter">🐦</a>
-                        <a href="#" class="social-link youtube">📺</a>
+                        <a href="https://www.instagram.com/konesmx/" target="_blank" class="social-link instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
