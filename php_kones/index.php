@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kone's - Centro Psicoeducativo Infantil</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <!-- Header y Navegación -->
@@ -289,26 +289,30 @@
 
                 <!-- Formulario de Contacto -->
                 <div class="contact-form-container">
-                <form action="contacto.php" method="POST" class="contact-form">
+                <div class="contact-form">
                     <div class="form-group">
                         <label for="nombre">Nombre *</label>
-                        <input type="text" id="nombre" name="nombre" required>
+                        <input type="text" id="nombre" required>
+                        <div class="error-message" id="nombre-error"></div>
                     </div>
                     
                     <div class="form-group">
                         <label for="email">E-mail *</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" required>
+                        <div class="error-message" id="email-error"></div>
                     </div>
                     
                     <div class="form-group">
                         <label for="mensaje">Mensaje *</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" required style="resize: none;"></textarea>
+                        <textarea id="mensaje" rows="4" required style="resize: none;"></textarea>
+                        <div class="error-message" id="mensaje-error"></div>
                     </div>
                     
                     <div class="form-submit">
-                        <button type="submit" class="submit-btn">Enviar</button>
+                        <button type="button" class="submit-btn">Enviar</button>
+                        <div class="success-message" id="success-message"></div>
                     </div>
-                </form>
+                </div>
                 </div>
             </div>
         </div>
@@ -339,6 +343,6 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>

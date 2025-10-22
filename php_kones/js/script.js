@@ -1,8 +1,37 @@
 // JavaScript para la página de Kone's
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling para enlaces de navegación
+    // Funcionalidad del menú hamburguesa
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const mainNav = document.querySelector('.main-nav');
     const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Toggle del menú hamburguesa
+    hamburgerMenu.addEventListener('click', function() {
+        hamburgerMenu.classList.toggle('active');
+        mainNav.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
+    
+    // Cerrar menú al hacer clic en un enlace
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            hamburgerMenu.classList.remove('active');
+            mainNav.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+    
+    // Cerrar menú al hacer clic fuera de él
+    document.addEventListener('click', function(e) {
+        if (!hamburgerMenu.contains(e.target) && !mainNav.contains(e.target)) {
+            hamburgerMenu.classList.remove('active');
+            mainNav.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+    
+    // Smooth scrolling para enlaces de navegación
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -48,40 +77,93 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Validación del formulario de contacto
-    const contactForm = document.querySelector('.contact-form form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+    const submitBtn = document.querySelector('.submit-btn');
+    const contactForm = document.querySelector('.contact-form');
+    
+    if (submitBtn && contactForm) {
+        submitBtn.addEventListener('click', function(e) {
             e.preventDefault();
+            
+            // Limpiar mensajes anteriores
+            clearMessages();
             
             const nombre = document.getElementById('nombre').value.trim();
             const email = document.getElementById('email').value.trim();
             const mensaje = document.getElementById('mensaje').value.trim();
             
+            let hasErrors = false;
+            
             // Validaciones básicas
             if (!nombre) {
-                alert('Por favor, ingresa tu nombre.');
-                return;
+                showError('nombre-error', 'Falta el nombre');
+                hasErrors = true;
             }
             
             if (!email) {
-                alert('Por favor, ingresa tu email.');
-                return;
-            }
-            
-            if (!isValidEmail(email)) {
-                alert('Por favor, ingresa un email válido.');
-                return;
+                showError('email-error', 'Falta el correo');
+                hasErrors = true;
+            } else if (!isValidEmail(email)) {
+                showError('email-error', 'El formato del correo no es válido');
+                hasErrors = true;
             }
             
             if (!mensaje) {
-                alert('Por favor, ingresa tu mensaje.');
+                showError('mensaje-error', 'Falta el mensaje');
+                hasErrors = true;
+            }
+            
+            // Si hay errores, no continuar
+            if (hasErrors) {
                 return;
             }
             
-            // Si todo está bien, enviar el formulario
-            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
-            contactForm.reset();
+            // Si todo está bien, simular envío
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.disabled = true;
+            
+            setTimeout(function() {
+                // Mostrar mensaje de éxito
+                showSuccess('Mensaje enviado');
+                
+                // Limpiar campos
+                document.getElementById('nombre').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('mensaje').value = '';
+                
+                // Restaurar botón después de 2 segundos
+                setTimeout(function() {
+                    submitBtn.textContent = 'Enviar';
+                    submitBtn.disabled = false;
+                    clearMessages();
+                }, 2000);
+            }, 1000);
         });
+    }
+    
+    // Funciones auxiliares para mostrar mensajes
+    function showError(elementId, message) {
+        const errorElement = document.getElementById(elementId);
+        errorElement.textContent = message;
+        errorElement.classList.add('show');
+    }
+    
+    function showSuccess(message) {
+        const successElement = document.getElementById('success-message');
+        successElement.textContent = message;
+        successElement.classList.add('show');
+    }
+    
+    function clearMessages() {
+        const errorMessages = document.querySelectorAll('.error-message');
+        const successMessage = document.getElementById('success-message');
+        
+        errorMessages.forEach(msg => {
+            msg.classList.remove('show');
+            msg.textContent = '';
+        });
+        
+        successMessage.classList.remove('show');
+        successMessage.textContent = '';
     }
 
     // Función para validar email

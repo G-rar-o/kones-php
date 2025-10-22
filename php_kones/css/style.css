@@ -635,20 +635,77 @@ html, body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .header-content {
-        flex-direction: column;
-        gap: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
     }
     
     .logo-colorful {
         font-size: 2rem;
     }
     
+    .logo-image {
+        max-width: 150px;
+        height: auto;
+    }
+    
     .main-nav {
-        gap: 20px;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+    
+    .main-nav.active {
+        left: 0;
+    }
+    
+    .nav-link {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #333;
+        padding: 15px 30px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+        background-color: #ff6b9d;
+        color: white;
+        transform: scale(1.05);
     }
     
     .hamburger-menu {
         display: flex;
+        position: relative;
+        z-index: 1001;
+    }
+    
+    .hamburger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+    
+    /* Prevenir scroll cuando el menú está abierto */
+    body.menu-open {
+        overflow: hidden;
     }
     
     .hero-title {
@@ -665,14 +722,16 @@ html, body {
     }
     
     .children-images {
-        gap: 25px;
-        flex-direction: column;
+        gap: 15px;
+        flex-direction: row;
         align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
     }
     
     .child-image {
-        width: 180px;
-        height: 180px;
+        width: 120px;
+        height: 120px;
     }
     
     .hero-buttons {
@@ -1093,6 +1152,30 @@ html, body {
     background-color: #e55a8a;
 }
 
+/* Mensajes de error y éxito */
+.error-message {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.success-message {
+    color: #27ae60;
+    font-size: 1rem;
+    margin-top: 10px;
+    font-weight: 600;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.success-message.show {
+    display: block;
+}
+
 /* Footer */
 .footer {
     background-color: #333;
@@ -1248,9 +1331,37 @@ html, body {
     }
 }
 
+/* Estilos para móviles pequeños */
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
+    }
+    
+    .header {
+        padding: 15px 0;
+    }
+    
+    .logo-image {
+        max-width: 120px;
+    }
+    
+    .nav-link {
+        font-size: 1.3rem;
+        padding: 12px 25px;
+    }
+    
+    .hamburger-menu span {
+        width: 22px;
+        height: 2px;
+    }
+    
+    .children-images {
+        gap: 10px;
+    }
+    
+    .child-image {
+        width: 100px;
+        height: 100px;
     }
     
     .hero {
